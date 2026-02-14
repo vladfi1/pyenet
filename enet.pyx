@@ -290,7 +290,7 @@ cdef class Address:
             elif self._enet_address.host:
                 if enet_address_get_host_ip(&self._enet_address, host, MAXHOSTNAME):
                     raise IOError("Resolution failure!")
-                return unicode(host, "ascii")
+                return host.decode("ascii")
 
         def __set__(self, value):
             if not value or value == "*":
@@ -310,7 +310,7 @@ cdef class Address:
             elif self._enet_address.host:
                 if enet_address_get_host(&self._enet_address, host, MAXHOSTNAME):
                     raise IOError("Resolution failure!")
-                return unicode(host, "ascii")
+                return host.decode("ascii")
 
     property port:
         def __get__(self):
