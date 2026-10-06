@@ -26,10 +26,10 @@ jobs:
           platforms: arm64
 
       - name: Build
-        uses: pypa/cibuildwheel@v2.22
+        uses: pypa/cibuildwheel@v3.4
         env:
           CIBW_BUILD_FRONTEND: "build"
-          CIBW_SKIP: "pp*"
+          CIBW_SKIP: "cp3??t-*"
           CIBW_ARCHS_LINUX: ${{ matrix.arch || 'x86_64' }}
         with:
           output-dir: wheelhouse
